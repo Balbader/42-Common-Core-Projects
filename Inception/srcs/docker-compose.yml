@@ -1,0 +1,64 @@
+# version of the Docker compose file format
+version: '3'
+
+# defines the containers that need to be run as part of the application
+services:
+
+  mariadb:
+    image: mariadb # image to use
+    container_name: mariadb # Name the container as "mariadb"
+    build: # Specifies a custom build context and Dockerfile
+      context: ./requirements/mariadb # location of the Dockerfile
+      dockerfile: Dockerfile
+    volumes: # mounts a volume from the host machine "data/mariadb" to the container dir "var/lib/mysql"
+      - mariadb_data:/var/lib/mysql
+    ports: # maps port 3306 on the host to port 3306 on the container allowing external access to the mariadb server
+      - 3306:3306
+    env_file: .env # file used to load environment variables into the container
+    networks: # connects the container to a custom network named "inception"
+      - inception
+    restart: on-failure # configure the container to restart if it fails
+
+  wordpress:
+    image: wordpress
+    container_name: wordpress
+    build:
+      context: ./requirements/wordpress
+      dockerfile: Dockerfile
+    volumes:
+      - wordpress_data:/var/www/html
+    ports:
+      - 9000:9000
+    env_file: .env
+    depends_on:
+      - mariadb
+    networks:
+      - inception
+    restart: on-failure
+
+  nginx:
+    image: nginx
+    container_name: nginx
+    build:
+      context: ./requirements/nginx
+      dockerfile: Dockerfile
+    volumes:
+      - wordpress_data:/var/www/html
+    ports:
+      - 443:443
+    env_file: .env
+    depends_on:
+      - wordpress
+    networks:
+      - inception
+    restart: on-failure
+
+volumes:
+  mariadb_data:
+    driver: local
+  wordpress_data:
+    driver: local
+
+networks:
+  inception:
+    driver: bridge
