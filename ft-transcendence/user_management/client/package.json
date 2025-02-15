@@ -1,0 +1,41 @@
+{
+	"name": "front",
+	"version": "2.0.1",
+	"description": "ft_transcendence client",
+	"main": "my-app.js",
+	"module": "my-app.js",
+	"type": "module",
+	"scripts": {
+		"build": "esbuild src/index.js --bundle --loader:.js=jsx --charset=utf8 --format=esm --minify --outdir=build/js",
+		"dev": "esbuild src/index.js --bundle --loader:.js=jsx --charset=utf8 --format=esm --outdir=build/js --sourcemap --watch",
+		"analyze": "cem analyze --litelement --globs \"**/*.js\" --exclude docs",
+		"analyze:watch": "cem analyze --litelement --globs \"**/*.js\" --exclude docs --watch"
+	},
+	"keywords": [
+		"web-components",
+		"lit-element",
+		"javascript",
+		"lit"
+	],
+	"author": "baalbade",
+	"license": "MIT",
+	"dependencies": {
+		"@lit-labs/router": "^0.1.3",
+		"@lit/task": "^1.0.1",
+		"bootstrap-icons": "^1.11.3",
+		"ky": "^1.3.0",
+		"lit": "^3.0.0"
+	},
+	"devDependencies": {
+		"@11ty/eleventy": "^1.0.1",
+		"@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
+		"@custom-elements-manifest/analyzer": "^0.6.3",
+		"@lit-labs/ssr": "^3.2.2",
+		"@webcomponents/webcomponentsjs": "^2.8.0",
+		"esbuild": "^0.23.0",
+		"globals": "^15.6.0",
+		"lit-analyzer": "^1.2.1",
+		"xo": "^0.58.0"
+	},
+	"customElements": "custom-elements.json"
+}

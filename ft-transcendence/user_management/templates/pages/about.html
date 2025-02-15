@@ -1,0 +1,134 @@
+{% extends "base.html" %} {% load static %} {% block content%}
+<div class="container container-xxl h-100">
+	<section class="bg-light py-3 py-md-5 py-xl-8">
+		<div class="container">
+			<div class="row justify-content-md-center">
+				<div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+					<h2 class="mb-4 display-5 text-center">Our Team</h2>
+					<p class="text-secondary mb-5 text-center lead fs-4">
+						We are a group of passionate individuals.<br />
+						Thanks for checking out our final project.<br />
+						We hope you'll like it ^^
+					</p>
+					<hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle" />
+				</div>
+			</div>
+		</div>
+
+		<div class="container overflow-hidden">
+			<div class="row gy-4 gy-lg-0 justify-content-center">
+				<div class="col-12 col-md-6 col-lg-2">
+					<div class="card shadow-sm overflow-hidden">
+						<div class="card-body p-0">
+							<figure class="m-0 p-0">
+								<img
+									class="img-fluid"
+									loading="lazy"
+									src="{% static 'img/ftuernal.png' %}"
+									alt="Floriane Frtuernal Sabotinov"
+								/>
+								<figcaption class="m-0 p-4">
+									<h5 class="mb-1">
+										Floriane Ftuernal Sabotinov
+									</h5>
+									<p class="text-secondary mb-0">
+										Web Sockets & DB
+									</p>
+								</figcaption>
+							</figure>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-12 col-md-6 col-lg-2">
+					<div class="card overflow-hidden">
+						<div class="card-body p-0">
+							<figure class="m-0 p-0">
+								<img
+									class="img-fluid"
+									loading="lazy"
+									src="{% static 'img/medium_bahommer.png' %}"
+									alt="Baptiste Hommeril"
+								/>
+								<figcaption class="m-0 p-4">
+									<h5 class="mb-1">Baptiste Hommeril</h5>
+									<p class="text-secondary mb-0">
+										Blockchain & Pong Game
+									</p>
+								</figcaption>
+							</figure>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-12 col-md-6 col-lg-2">
+					<div class="card shadow-sm overflow-hidden">
+						<div class="card-body p-0">
+							<figure class="m-0 p-0">
+								<img
+									class="img-fluid"
+									loading="lazy"
+									src="{% static 'img/medium_larmenou.png' %}"
+									alt="Ludovic Armeroult"
+								/>
+								<figcaption class="m-0 p-4">
+									<h5 class="mb-1">Ludovic Armenoult</h5>
+									<p class="text-secondary mb-0">
+										Auth & Cyber
+									</p>
+								</figcaption>
+							</figure>
+						</div>
+					</div>
+				</div>
+
+				<div class="row justify-content-md-center pt-5">
+					<div class="col-12 col-md-6 col-lg-2">
+						<div class="card shadow-sm overflow-hidden">
+							<div class="card-body p-0">
+								<figure class="m-0 p-0">
+									<img
+										class="img-fluid"
+										loading="lazy"
+										src="{% static 'img/medium_mede-mas.png' %}"
+										alt="Melchior De Massary"
+									/>
+									<figcaption class="m-0 p-4">
+										<h5 class="mb-1">
+											Melchior De Massary
+										</h5>
+										<p class="text-secondary mb-0">
+											Auth & Cyber
+										</p>
+									</figcaption>
+								</figure>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 col-md-6 col-lg-2">
+						<div class="card shadow-sm overflow-hidden">
+							<div class="card-body p-0">
+								<figure class="m-0 p-0">
+									<img
+										class="img-fluid"
+										loading="lazy"
+										src="{% static 'img/baalbade.jpg' %}"
+										alt="Basil Albader"
+									/>
+									<figcaption class="m-0 p-4">
+										<h5 class="mb-1">Basil Albader</h5>
+										<p class="text-secondary mb-0">
+											Full Stack & User Management
+										</p>
+									</figcaption>
+								</figure>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+{% endblock %}

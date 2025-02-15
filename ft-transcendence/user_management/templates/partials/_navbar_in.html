@@ -1,0 +1,155 @@
+{% load static %}
+
+<nav class="container-xxl bg-dark navbar navbar-expand-lg navbar-dark">
+	<div class="container container-xxl pl-5">
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<a class="navbar-brand mt-lg-2" href="home">
+			<img src="{% static 'img/ping-pong (1).png' %}" class="pe-4" width="70" height="50"/>
+				FT_TRANSCENDENCE
+			</a>
+		</div>
+
+		<div class="d-flex align-items-center">
+			<ul class="navbar-nav d-flex align-items-center">
+				<li class="nav-item">
+					<a class="nav-link" href="{% url "dashboard" %}">Dashboard</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link" href="{% url "settings" %}">Settings</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link" href="{% url "pwdReset" %}">Password Reset</a>
+				</li>
+
+			</ul>
+		</div>
+
+		<div class="">
+			<a
+				data-mdb-dropdown-init
+				class=" d-flex align-items-center pr-5"
+				href="#"
+				id="navbarDropdownMenuAvatar"
+				role="button"
+				aria-expanded="false"
+			>
+				<img
+					src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+					class="rounded-circle"
+					height="50"
+					alt="Black and White Portrait of a Man"
+					loading="lazy"
+				/>
+			</a>
+		</div>
+	</div>
+</nav>
+
+
+{% comment %} ! commented part: to use as reference for navigation {% endcomment %}
+{% comment %} <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}">
+            <img src="{% static 'pages/img/logo.png' %}" class="logo" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav">
+
+                <!--NOTE: Home nav link -->
+                <li
+                    {% if '/' == request.path %}
+                        class="nav-item active mr-3"
+                    {% else %}
+                        class="nav-item mr-3"
+                    {% endif %}
+                >
+                    <a class="nav-link" href="{% url 'index' %}">Home</a>
+                </li>
+
+                <!--NOTE: About nav link -->
+                <li
+                    {% if 'about' in request.path %}
+                        class="nav-item active mr-3"
+                    {% else %}
+                        class="nav-item mr-3"
+                    {% endif %}
+                >
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+
+                <!--NOTE: Switch navbar based on 'is logged in' || 'not logged in'-->
+
+                {% if user.is_authenticated %}
+
+                    <!--NOTE: My Dashboard/profile button -->
+                    <li
+                        {% if 'dashboard' in request.path %}
+                            class="nav-item active mr-3"
+                        {% else %}
+                            class="nav-item mr-3"
+                        {% endif %}
+                    >
+                        <a class="nav-link" href="{% url 'dashboard' %}">
+                            <i class="fas fa-list-ul"></i> My Dashboard
+                        </a>
+                    </li>
+
+                    <!--NOTE: Logout Link -->
+                    <li class="nav-item mr-3">
+
+                        <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+
+                        <form id="logout" action="{% url 'logout' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden">
+                        </form>
+
+                    </li>
+
+                {% else %}
+
+                    <!--NOTE: Register button -->
+                    <li
+                        {% if 'register' in request.path %}
+                            class="nav-item active mr-3"
+                        {% else %}
+                            class="nav-item mr-3"
+                        {% endif %}
+                    >
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-user-plus"></i> Sign Up
+                        </a>
+                    </li>
+
+                    <!--NOTE: Login button -->
+                    <li
+                        {% if 'login' in request.path %}
+                            class="nav-item active mr-3"
+						{% else %}
+                            class="nav-item mr-3"
+                        {% endif %}
+                    >
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Login
+                        </a>
+                    </li>
+
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+</nav> {% endcomment %}
+{% comment %} ! commented part: to use as reference for navigation {% endcomment %}
